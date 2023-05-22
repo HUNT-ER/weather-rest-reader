@@ -3,12 +3,15 @@ package com.boldyrev.sensorrestreader.models;
 import com.boldyrev.sensorrestreader.enums.SensorType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Pattern;
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +37,11 @@ public class Sensor {
 
     @NonNull
     @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     private SensorType type;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "sensor")
     private List<Measurement> measurements;
