@@ -17,4 +17,5 @@ public class SensorRestReaderApplication {
         return new ModelMapper();
     }
 
+
 }

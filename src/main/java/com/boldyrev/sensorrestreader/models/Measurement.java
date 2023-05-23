@@ -13,6 +13,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -34,16 +35,16 @@ public class Measurement {
     @Min(value = -100, message = "Value should not be less -100")
     @Max(value = 100, message = "Value should not be greater 100")
     @Column(name = "value")
-    private double value;
+    private Double value;
 
     @NonNull
     @NotNull(message = "Rain flag should can't be null")
-    @Column()
-    private boolean isRaining;
+    @Column(name = "raining")
+    private Boolean isRaining;
 
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-
-    @NotNull
     @ManyToOne
     @JoinColumn(name = "sensor_id", referencedColumnName = "sensor_id")
     private Sensor sensor;

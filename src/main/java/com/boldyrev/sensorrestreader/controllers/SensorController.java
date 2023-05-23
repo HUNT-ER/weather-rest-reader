@@ -52,6 +52,7 @@ public class SensorController {
             );
             throw new SensorValidationException(builder.toString());
         }
+
         sensorsService.save(convertDtoToSensor(sensorDTO));
         return ResponseEntity.ok(HttpStatus.OK);
     }

@@ -8,6 +8,8 @@ class WeatherSensorRestReaderApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
+
 
 }
